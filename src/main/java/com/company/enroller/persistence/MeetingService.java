@@ -14,15 +14,15 @@ public class MeetingService {
 	
 	Session session;
 	
-    DatabaseConnector connector;
+    //DatabaseConnector connector;
 
     public MeetingService() {
-        connector = DatabaseConnector.getInstance();
+        session = DatabaseConnector.getInstance().getSession();
     }
 
     public Collection<Meeting> getAll() {
         String hql = "FROM Meeting";
-        Query query = connector.getSession().createQuery(hql);
+        Query query = session.createQuery(hql);
         return query.list();
     }
     public Meeting findById(long id) {

@@ -34,7 +34,7 @@ public class MeetingRestController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<?> registerMeeting(@RequestBody Meeting meeting) {
         if (meetingService.findById(meeting.getId()) != null)
-            return new ResponseEntity("Unable to create. A meeting with ID " + meeting.getId() + " already exist.", HttpStatus.CONFLICT);
+            return new ResponseEntity("Unable to create. Meeting with ID " + meeting.getId() + " already exist.", HttpStatus.CONFLICT);
 
         meetingService.add(meeting);
         return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
