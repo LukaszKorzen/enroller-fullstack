@@ -33,7 +33,7 @@
                 registering: false,
                 message: '',
                 isError: false
-                meetings: []
+                meetings: [],
             };
         },
         methods: {
